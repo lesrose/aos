@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>aos1.0</display-name>
+  <!-- 配置spring核心监听器，默认会以 /WEB-INF/applicationContext.xml作为配置文件 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- contextConfigLocation参数用来指定Spring的配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext*.xml</param-value>
+	</context-param>
+	<servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>
+        org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/springmvc-config.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<!-- 第一种：*.action，访问以.action结尾 由DispatcherServlet进行解析 第二种：/，所以访问的地址都由DispatcherServlet进行解析，对于静态文件的解析需要配置不让DispatcherServlet进行解析 
+			使用此种方式可以实现 RESTful风格的url 第三种：/*，这样配置不对，使用这种配置，最终要转发到一个jsp页面时， 仍然会由DispatcherServlet解析jsp地址，不能根据jsp页面找到handler，会报错。 -->
+		<url-pattern>*.action</url-pattern>
+	</servlet-mapping>
+
+	<!-- post乱码过虑器 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+	
+	
+	
+	
+	<servlet>
+	<servlet-name>Public</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/Public.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>Public</servlet-name>
+	<url-pattern>/Public</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>oillist</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/oillist.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>oillist</servlet-name>
+	<url-pattern>/oillist</url-pattern>
+	</servlet-mapping>
+	
+	 <servlet>
+	<servlet-name>oiladd</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/oiladd.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>oiladd</servlet-name>
+	<url-pattern>/oiladd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>oilupdate</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/oilupdate.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>oilupdate</servlet-name>
+	<url-pattern>/oilupdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>userlist</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/userlist.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>userlist</servlet-name>
+	<url-pattern>/userlist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>useradd</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/useradd.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>useradd</servlet-name>
+	<url-pattern>/useradd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>userupdate</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/userupdate.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>userupdate</servlet-name>
+	<url-pattern>/userupdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>password</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/password.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>password</servlet-name>
+	<url-pattern>/password</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>password1</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/password1.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>password1</servlet-name>
+	<url-pattern>/password1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>datelist</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/datelist.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>datelist</servlet-name>
+	<url-pattern>/datelist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>datecopy</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/datecopy.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>datecopy</servlet-name>
+	<url-pattern>/datecopy</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>datecopy1</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/datecopy1.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>datecopy1</servlet-name>
+	<url-pattern>/datecopy1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>stlist</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/stlist.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>stlist</servlet-name>
+	<url-pattern>/stlist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>addstation</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/addstation.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>addstation</servlet-name>
+	<url-pattern>/addstation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>stupdate</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/stupdate.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>stupdate</servlet-name>
+	<url-pattern>/stupdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>tankbd</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/tankbd.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>tankbd</servlet-name>
+	<url-pattern>/tankbd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>message</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/message.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>message</servlet-name>
+	<url-pattern>/message</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	<servlet-name>msupdate</servlet-name>
+	<jsp-file>/WEB-INF/jsp/oil/msupdate.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>msupdate</servlet-name>
+	<url-pattern>/msupdate</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	<servlet-name>add2</servlet-name>
+	<jsp-file>/WEB-INF/jsp/l/add2.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>add2</servlet-name>
+	<url-pattern>/add2</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	<servlet-name>index</servlet-name>
+	<jsp-file>/WEB-INF/jsp/l/index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>index</servlet-name>
+	<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	<servlet-name>list</servlet-name>
+	<jsp-file>/WEB-INF/jsp/l/list.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>list</servlet-name>
+	<url-pattern>/list</url-pattern>
+	</servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
