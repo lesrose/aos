@@ -38,7 +38,7 @@ public class Stlist {
 		for (int i = 0; i < autho.size(); i++) {
 			v.add(autho.get(i).getSname());
 		}
-		System.out.println(v.toString());
+		//System.out.println(v.toString());
 		List<String> p=new ArrayList();
 	    for (int i = 0; i < v.size(); i++) {
 	    	int a=jug(v.get(i));

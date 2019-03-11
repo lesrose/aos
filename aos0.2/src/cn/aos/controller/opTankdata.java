@@ -89,6 +89,8 @@ public class opTankdata {
 		return "success";
 	}
 
+	
+	//向油罐表添加一条数据
 	@RequestMapping("/addTankdata.action")
 	public ModelAndView addTankdata(HttpSession session,
 			HttpServletResponse response, HttpServletRequest request)
@@ -129,9 +131,12 @@ public class opTankdata {
 		oiltankPlus.setTname(oname);
 		// oilService.addTankdata(oname, h, v);
 		oilService.addTankdata1(oiltankPlus);
-		return "success";
+		//return "success";
+		return "oil/showdate";
 	}
-
+	
+	
+	
 	@RequestMapping("/deleteTankdata.action")
 	public String deleteTankdata(HttpSession session,
 			HttpServletResponse response, HttpServletRequest request,
